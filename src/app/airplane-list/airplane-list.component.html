@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table id="list" class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Modelo</th>
+                    <th>Passageiros</th>
+                    <th>Data de Criação</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let airplane of airplanes | async">
+                    <td>{{airplane.id}}</td>
+                    <td>{{airplane.airplaneCode}}</td>
+                    <td>{{airplane.airplaneModel}}</td>
+                    <td>{{airplane.passengers}}</td>
+                    <td>{{airplane.registryCreationDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <button class="btn btn-default btn-sm icon-btn" (click)="details(airplane)"><i
+                                class="fa fa-eye"></i></button>
+                        <a class="btn btn-primary btn-sm icon-btn" (click)="edit(airplane)"><i
+                                class="fa fa-pencil"></i></a>
+                        <button class="btn btn-danger btn-sm icon-btn" (click)="deleteAirplane(airplane.id)"><i
+                                class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

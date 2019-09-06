@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div [hidden]="submitted" style="width: 400px;">
+            <form id="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" id="id" required [(ngModel)]="airplane.id" name="id">
+                    <input type="hidden" class="form-control" id="date" required
+                        [(ngModel)]="airplane.registryCreationDate" name="date">
+                    <label for="code">Código do Avião</label>
+                    <input type="number" class="form-control" id="code" required [(ngModel)]="airplane.airplaneCode"
+                        name="code">
+                    <span class="badge badge-warning message">Campo Obrigtório.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Modelo do Avião</label>
+                    <input type="text" class="form-control" id="model" required [(ngModel)]="airplane.airplaneModel"
+                        name="model">
+                    <span class="badge badge-warning message">Campo Obrigtório.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="passengers">Quantidade de Passageiros</label>
+                    <input type="number" class="form-control" id="passengers" required [(ngModel)]="airplane.passengers"
+                        name="passengers">
+                    <span class="badge badge-warning message">Campo Obrigtório.</span>
+                </div>
+
+                <button id="createBtn" type="button" class="btn btn-success">Cadastrar</button>
+                <button id="hiddenBtn" type="submit"></button>
+            </form>
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div [hidden]="!submitted">
+    <h3><span class="badge badge-success">Sucesso!</span></h3>
+</div>
